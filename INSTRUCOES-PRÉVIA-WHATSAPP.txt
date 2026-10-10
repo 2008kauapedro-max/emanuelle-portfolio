@@ -1,0 +1,24 @@
+ATUALIZAÇÃO DA PRÉVIA DO WHATSAPP — EMANUELLE (10/10/2026)
+
+Este pacote contém APENAS 3 arquivos. A atualização não altera o visual do site ou do PWA.
+
+1. Extraia os arquivos na raiz do projeto, sobrescrevendo index.html e service-worker.js.
+2. No terminal do projeto, execute:
+   git add .
+   git commit -m "Melhora imagem de compartilhamento WhatsApp"
+   git push origin main
+3. Depois do deploy, abra no navegador:
+   https://emanuelle-portfolio.vercel.app/assets/images/preview-whatsapp-ec-v3.jpg
+   A logo ec. deve aparecer. Se der 404, o deploy não incluiu o novo arquivo.
+4. No WhatsApp, teste colando ESTE LINK COM PARÂMETRO:
+   https://emanuelle-portfolio.vercel.app/?v=3
+   Aguarde alguns segundos para carregar a prévia ANTES de enviar.
+   O parâmetro de teste força um link diferente para fugir do cache do WhatsApp.
+
+IMPORTANTE:
+- O site pode oferecer uma miniatura, título e descrição, mas somente o WhatsApp escolhe
+  o tamanho da imagem, a disposição do cartão e se deixa o texto da URL visível.
+- Para compartilhar sem DIGITAR a URL, abra o site no Chrome e use ⋮ > Compartilhar > WhatsApp.
+- Se a logo aparecer no navegador mas não no cartão, pode ser cache do WhatsApp ou
+  bloqueio do crawler; tente em outra conversa e aguarde a atualização.
+- Este pacote não modifica seu repositório .git.

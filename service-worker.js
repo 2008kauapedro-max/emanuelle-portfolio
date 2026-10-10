@@ -1,5 +1,5 @@
 /* Emanuelle Costa — PWA offline shell, sem frameworks. */
-const CACHE_NAME = 'emanuelle-portfolio-v1-20261010';
+const CACHE_NAME = 'emanuelle-portfolio-v2-20261010';
 const APP_ASSETS = [
   "./",
   "./index.html",
@@ -12,6 +12,7 @@ const APP_ASSETS = [
   "./assets/icons/icon-maskable-512.png",
   "./assets/icons/apple-touch-icon.png",
   "./assets/images/capa-compartilhamento.jpg",
+  "./assets/images/preview-whatsapp-ec-v3.jpg",
   "./assets/images/comunidade.webp",
   "./assets/images/emanuel-editorial.webp",
   "./assets/images/emanuel-hero.webp",
