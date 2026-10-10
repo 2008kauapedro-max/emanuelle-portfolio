@@ -99,3 +99,40 @@ Evite valores muito baixos para nao ficar lento.
 
 Os links de Lenis no `index.html` dependem de conexao a internet,
 assim como as fontes importadas do Google Fonts.
+
+
+## Prévia no WhatsApp e PWA (atualização de 10/10/2026)
+
+O portfólio usa a imagem `assets/images/capa-compartilhamento.jpg` (1200×630)
+para exibir uma prévia com nome, foto e descrição ao compartilhar um link.
+O endereço público nas tags Open Graph está configurado para:
+
+`https://emanuelle-portfolio.vercel.app/`
+
+**Importante:** se o domínio mudar, atualize esse endereço no `index.html`:
+`canonical`, `og:url`, `og:image`, `og:image:secure_url` e `twitter:image`.
+A imagem precisa estar disponível publicamente via HTTPS. O WhatsApp pode manter
+uma versão antiga da prévia em cache; tente compartilhar a URL atualizada após
+publicar, aguarde o recarregamento da prévia ou use um parâmetro de teste,
+como `?compartilhar=2` na URL principal. O arquivo de capa está identificado
+com `?v=2` para facilitar atualização do cache da imagem.
+
+### Instalar como aplicativo
+
+- **Android (Chrome):** abra o endereço publicado via HTTPS, toque no menu
+  de três pontos e escolha *Instalar aplicativo* ou *Adicionar à tela inicial*.
+- **iPhone (Safari):** abra o link no Safari, toque em **Compartilhar** e depois
+  em **Adicionar à Tela de Início** (em versões novas, a opção pode aparecer
+  como **Adicionar à Tela de Início** / **Abrir como App**).
+- **Computador (Chrome/Edge):** abra o link em HTTPS e use *Instalar* no menu
+  do navegador, quando o navegador oferecer essa opção.
+
+A aplicação mantém o visual original, sem um botão extra na interface. O
+`manifest.webmanifest` define nome, aparência e ícones, enquanto o
+`service-worker.js` permite visitar as páginas e fotografias já salvas sem
+internet, depois do primeiro acesso online. Os vídeos e as fontes/CDNs externos
+podem precisar de internet. A instalação PWA não funciona por `file://`;
+teste na Vercel ou em `localhost`.
+
+Ao alterar os arquivos do site no futuro, incremente `CACHE_NAME` no
+`service-worker.js` para que os dispositivos instalados recebam a versão nova.

@@ -311,3 +311,14 @@ window.addEventListener('resize', scheduleReels, { passive: true });
 document.addEventListener('visibilitychange', scheduleReels);
 dialog?.addEventListener('close', scheduleReels);
 scheduleReels();
+
+
+// PWA: permite instalar pela opção do navegador e abrir conteúdo básico offline.
+// Service workers exigem HTTPS na hospedagem (localhost durante desenvolvimento).
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js').catch(() => {
+      // A instalação fica indisponível se o navegador bloquear service workers.
+    });
+  });
+}
