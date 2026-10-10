@@ -80,3 +80,22 @@ Também funciona em hospedagens estáticas equivalentes.
 - Substituir as prévias ilustrativas por vídeos verdadeiros, assim que ela enviar.
 - Opcional: incluir domínio personalizado e redes sociais verificadas.
 - Se houver uso das fotos em contexto comercial, confirmar a autorização das pessoas fotografadas, especialmente crianças.
+
+
+## Rolagem suave no PC e celular (atualizacao)
+
+- **PC com mouse:** a biblioteca leve Lenis, carregada pela internet,
+  aplica inercia suave ao girar a rodinha.
+- **Celular/tablet:** rolagem nativa do navegador, sem interceptar o toque;
+  os projetos continuam revelando elementos suavemente.
+- **Acessibilidade:** a preferencia de sistema por movimento reduzido
+  desativa os efeitos de rolagem artificiais.
+- **Offline:** o site funciona sem o CDN, apenas sem a inercia extra no PC.
+
+Ajuste a sensacao em `js/main.js`, na opcao `lerp: 0.095`:
+quanto menor (por exemplo, 0.075), mais prolongada a desaceleracao;
+quanto maior (por exemplo, 0.13), mais direta a resposta.
+Evite valores muito baixos para nao ficar lento.
+
+Os links de Lenis no `index.html` dependem de conexao a internet,
+assim como as fontes importadas do Google Fonts.

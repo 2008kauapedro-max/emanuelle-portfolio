@@ -10,6 +10,32 @@ const motionBehavior = () => prefersReducedMotion.matches ? 'auto' : 'smooth';
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
+// SCROLL SUAVE PREMIUM (somente PC com mouse).
+// No celular, mantenha a inercia nativa: mais previsivel e leve.
+// A biblioteca e opcional: se o CDN falhar, o site continua funcionando.
+const desktopWheel = window.matchMedia('(min-width: 881px) and (pointer: fine)');
+let smoothScroll = null;
+function configureSmoothScroll() {
+  const allowed = desktopWheel.matches && !prefersReducedMotion.matches && typeof window.Lenis === 'function';
+  if (allowed && !smoothScroll) {
+    smoothScroll = new window.Lenis({
+      autoRaf: true,
+      anchors: true,
+      smoothWheel: true,
+      syncTouch: false,
+      lerp: 0.095,
+      wheelMultiplier: 1
+    });
+    if (document.body.classList.contains('dialog-open')) smoothScroll.stop();
+  } else if (!allowed && smoothScroll) {
+    smoothScroll.destroy();
+    smoothScroll = null;
+  }
+}
+configureSmoothScroll();
+desktopWheel.addEventListener?.('change', configureSmoothScroll);
+prefersReducedMotion.addEventListener?.('change', configureSmoothScroll);
+
 // ATUALIZAÇÃO AUTOMÁTICA DO ANO
 $$('.current-year').forEach(el => { el.textContent = String(new Date().getFullYear()); });
 
@@ -145,6 +171,7 @@ function openProject(key) {
   if (typeof dialog.showModal === 'function') {
     dialog.showModal();
     document.body.classList.add('dialog-open');
+    smoothScroll?.stop();
     $('#dialog-close').focus({ preventScroll: true });
   } else {
     // Dialog nativo funciona em todos os navegadores modernos atuais.
@@ -159,6 +186,7 @@ $('#dialog-next')?.addEventListener('click', () => { currentPhoto++; showPhoto()
 dialog?.addEventListener('click', event => { if (event.target === dialog) closeProject(); });
 dialog?.addEventListener('close', () => {
   document.body.classList.remove('dialog-open');
+  smoothScroll?.start();
   imageElement.removeAttribute('src');
   if (previousFocus instanceof HTMLElement) previousFocus.focus({ preventScroll: true });
   currentProject = null;
