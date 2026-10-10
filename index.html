@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#f4f0e9" />
   <meta name="color-scheme" content="light" />
+  <!-- Restaura o modo conforto antes da primeira pintura da página. -->
+  <script>
+    try {
+      if (localStorage.getItem('emanuelle-visual-mode') === 'soft') {
+        document.documentElement.dataset.theme = 'soft';
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', '#d6cec4');
+      }
+    } catch (_) { /* Navegação privada: mantém o tema padrão. */ }
+  </script>
   <meta name="description" content="Portfólio de Emanuelle Costa — fotografia, vídeo e criação visual em Brasília. Histórias reais contadas com sensibilidade." />
   <link rel="canonical" href="https://emanuelle-portfolio.vercel.app/" />
 
@@ -61,6 +70,10 @@
       <a href="#sobre">Sobre</a>
     </nav>
     <a class="header-contact" href="#contato">Vamos conversar <span aria-hidden="true">↗</span></a>
+    <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Ativar modo conforto visual" aria-pressed="false" title="Conforto visual">
+      <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.1A8.5 8.5 0 0 1 9.9 3.5 8.5 8.5 0 1 0 20.5 14.1Z"/></svg>
+    </button>
     <button type="button" class="menu-toggle" id="menu-toggle" aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menu">
       <span></span><span></span>
     </button>

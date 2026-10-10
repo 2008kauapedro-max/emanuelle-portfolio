@@ -36,6 +36,27 @@ configureSmoothScroll();
 desktopWheel.addEventListener?.('change', configureSmoothScroll);
 prefersReducedMotion.addEventListener?.('change', configureSmoothScroll);
 
+// MODO CONFORTO VISUAL: alterna entre o editorial original e tons suaves.
+const themeToggle = $('#theme-toggle');
+function syncVisualMode() {
+  const soft = document.documentElement.dataset.theme === 'soft';
+  if (themeToggle) {
+    themeToggle.setAttribute('aria-pressed', String(soft));
+    themeToggle.setAttribute('aria-label', soft ? 'Desativar modo conforto visual' : 'Ativar modo conforto visual');
+    themeToggle.title = soft ? 'Voltar ao visual original' : 'Ativar conforto visual';
+  }
+  $('meta[name="theme-color"]')?.setAttribute('content', soft ? '#d6cec4' : '#f4f0e9');
+}
+themeToggle?.addEventListener('click', () => {
+  const soft = document.documentElement.dataset.theme !== 'soft';
+  if (soft) document.documentElement.dataset.theme = 'soft';
+  else delete document.documentElement.dataset.theme;
+  try { localStorage.setItem('emanuelle-visual-mode', soft ? 'soft' : 'light'); }
+  catch (_) { /* Funciona mesmo com armazenamento indisponível. */ }
+  syncVisualMode();
+});
+syncVisualMode();
+
 // ATUALIZAÇÃO AUTOMÁTICA DO ANO
 $$('.current-year').forEach(el => { el.textContent = String(new Date().getFullYear()); });
 

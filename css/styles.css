@@ -211,3 +211,79 @@ h2{margin:0}.projects-heading h2,.motion-heading h2,.about-copy h2{font-family:v
 @media (prefers-reduced-motion:reduce){
  html{scroll-behavior:auto}.ticker-track{animation:none;will-change:auto}.js .reveal,.js .reveal.is-visible{transition:none;opacity:1;transform:none}*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
 }
+
+/* ─── Cabeçalho sempre visível + conforto visual (sem tema preto) ─── */
+.site-header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:110;
+  padding-top:env(safe-area-inset-top, 0px);
+  background:rgba(244,240,233,.96);
+  border-bottom:1px solid var(--line);
+  -webkit-backdrop-filter:blur(18px);
+  backdrop-filter:blur(18px);
+  transition:background-color .22s ease,border-color .22s ease;
+}
+.theme-toggle{
+  width:44px;
+  height:44px;
+  flex:0 0 44px;
+  display:grid;
+  place-items:center;
+  border:1px solid var(--line);
+  border-radius:50%;
+  background:transparent;
+  color:var(--ink);
+  transition:background .2s ease,border-color .2s ease,transform .2s ease;
+}
+.theme-toggle:hover{background:var(--paper-2);transform:rotate(12deg)}
+.theme-toggle:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
+.theme-icon-moon{display:none}
+:root[data-theme="soft"] .theme-icon-sun{display:none}
+:root[data-theme="soft"] .theme-icon-moon{display:block}
+/* Paleta taupe quente: menos brilho, contraste legível e sem preto puro. */
+:root[data-theme="soft"]{
+  --paper:#d6cec4;
+  --paper-2:#c8beb2;
+  --white:#e5ddd2;
+  --ink:#2a2521;
+  --muted:#514a43;
+  --line:rgba(42,37,33,.24);
+  --wine:#653d41;
+  --dark:#2d2825;
+}
+:root[data-theme="soft"] body{background:var(--paper)}
+:root[data-theme="soft"] .site-header{background:rgba(214,206,196,.97)}
+:root[data-theme="soft"] .mobile-menu{background:var(--paper)}
+:root[data-theme="soft"] .interlude{background:#bfb3a6}
+:root[data-theme="soft"] .hero-bottom p,
+:root[data-theme="soft"] .about-copy p{color:#3f3934}
+:root[data-theme="soft"] .hero-index,
+:root[data-theme="soft"] .project-category,
+:root[data-theme="soft"] .projects-footnote,
+:root[data-theme="soft"] .about-photo-index,
+:root[data-theme="soft"] .hero-side-label{color:#514941}
+:root[data-theme="soft"] .project-open{background:rgba(229,221,210,.96)}
+:root[data-theme="soft"] .mobile-menu>a{color:#554a42}
+:root[data-theme="soft"] .hero-photo,
+:root[data-theme="soft"] .project-image>img,
+:root[data-theme="soft"] .about-photo img,
+:root[data-theme="soft"] .details-tile img{filter:brightness(.94) saturate(.84)}
+@media (max-width:880px){
+  .site-header{gap:12px}
+  .theme-toggle{margin-left:auto;width:43px;height:43px;flex-basis:43px}
+  .menu-toggle{margin-left:0}
+  .mobile-menu{padding-top:calc(120px + env(safe-area-inset-top, 0px))}
+}
+@media (max-width:600px){
+  .site-header{gap:9px}
+  .theme-toggle{width:41px;height:41px;flex-basis:41px}
+  .mobile-menu{padding-top:calc(105px + env(safe-area-inset-top, 0px))}
+}
+@media (max-width:360px){
+  .brand{gap:8px}
+  .brand-copy{font-size:10px}
+  .brand-copy small{font-size:8px}
+}
