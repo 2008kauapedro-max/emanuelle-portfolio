@@ -1,20 +1,20 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#f4f0e9" />
   <meta name="color-scheme" content="light" />
-  <!-- Restaura o modo conforto antes da primeira pintura da página. -->
+  <!-- Restaura o modo conforto antes da primeira pintura da pÃ¡gina. -->
   <script>
     try {
       if (localStorage.getItem('emanuelle-visual-mode') === 'soft') {
         document.documentElement.dataset.theme = 'soft';
         document.querySelector('meta[name="theme-color"]').setAttribute('content', '#d6cec4');
       }
-    } catch (_) { /* Navegação privada: mantém o tema padrão. */ }
+    } catch (_) { /* NavegaÃ§Ã£o privada: mantÃ©m o tema padrÃ£o. */ }
   </script>
-  <meta name="description" content="Portfólio de Emanuelle Costa — fotografia, vídeo e criação visual em Brasília. Histórias reais contadas com sensibilidade." />
+  <meta name="description" content="PortfÃ³lio de Emanuelle Costa â€” fotografia, vÃ­deo e criaÃ§Ã£o visual em BrasÃ­lia. HistÃ³rias reais contadas com sensibilidade." />
   <link rel="canonical" href="https://emanuelle-portfolio.vercel.app/" />
 
   <!-- Compartilhamento WhatsApp: logo quadrada leve, servida em URL HTTPS absoluta. -->
@@ -22,20 +22,20 @@
   <meta property="og:locale" content="pt_BR" />
   <meta property="og:site_name" content="Emanuelle Costa" />
   <meta property="og:url" content="https://emanuelle-portfolio.vercel.app/" />
-  <meta property="og:title" content="Emanuelle Costa — Portfólio" />
-  <meta property="og:description" content="Fotografia, vídeo e criação visual. Conheça meus trabalhos." />
+  <meta property="og:title" content="Emanuelle Costa â€” PortfÃ³lio" />
+  <meta property="og:description" content="Fotografia, vÃ­deo e criaÃ§Ã£o visual. ConheÃ§a meus trabalhos." />
   <meta property="og:image" content="https://emanuelle-portfolio.vercel.app/assets/images/preview-whatsapp-ec-v3.jpg" />
   <meta property="og:image:secure_url" content="https://emanuelle-portfolio.vercel.app/assets/images/preview-whatsapp-ec-v3.jpg" />
   <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:image:width" content="512" />
   <meta property="og:image:height" content="512" />
-  <meta property="og:image:alt" content="Logotipo ec. do portfólio de Emanuelle Costa" />
+  <meta property="og:image:alt" content="Logotipo ec. do portfÃ³lio de Emanuelle Costa" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Emanuelle Costa — Portfólio" />
-  <meta name="twitter:description" content="Fotografia, vídeo e criação visual. Conheça meus trabalhos." />
+  <meta name="twitter:title" content="Emanuelle Costa â€” PortfÃ³lio" />
+  <meta name="twitter:description" content="Fotografia, vÃ­deo e criaÃ§Ã£o visual. ConheÃ§a meus trabalhos." />
   <meta name="twitter:image" content="https://emanuelle-portfolio.vercel.app/assets/images/preview-whatsapp-ec-v3.jpg" />
 
-  <!-- Instalação do portfólio como aplicativo (PWA / tela inicial). -->
+  <!-- InstalaÃ§Ã£o do portfÃ³lio como aplicativo (PWA / tela inicial). -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
@@ -53,23 +53,23 @@
   <link rel="stylesheet" href="css/styles.css?v=filmes-v3" />
   <script src="https://unpkg.com/lenis@1.3.26/dist/lenis.min.js" defer></script>
   <script src="js/main.js?v=filmes-v3" defer></script>
-  <title>Emanuelle Costa — Imagem & Movimento</title>
+  <title>Emanuelle Costa â€” Imagem & Movimento</title>
 </head>
 <body>
-  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <a class="skip-link" href="#conteudo">Ir para o conteÃºdo</a>
   <div class="page-progress" aria-hidden="true"><span id="scroll-progress"></span></div>
 
   <header class="site-header" id="topo">
-    <a class="brand" href="#inicio" aria-label="Emanuelle Costa — início">
+    <a class="brand" href="#inicio" aria-label="Emanuelle Costa â€” inÃ­cio">
       <span class="brand-mark">ec<span class="brand-period">.</span></span>
       <span class="brand-copy">Emanuelle Costa <small>imagem & movimento</small></span>
     </a>
-    <nav class="nav-desktop" aria-label="Navegação principal">
+    <nav class="nav-desktop" aria-label="NavegaÃ§Ã£o principal">
       <a href="#trabalhos">Projetos</a>
       <a href="#movimento">Em movimento</a>
       <a href="#sobre">Sobre</a>
     </nav>
-    <a class="header-contact" href="#contato">Vamos conversar <span aria-hidden="true">↗</span></a>
+    <a class="header-contact" href="#contato">Vamos conversar <span aria-hidden="true">â†—</span></a>
     <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Ativar modo conforto visual" aria-pressed="false" title="Conforto visual">
       <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
       <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.1A8.5 8.5 0 0 1 9.9 3.5 8.5 8.5 0 1 0 20.5 14.1Z"/></svg>
@@ -84,38 +84,38 @@
     <a href="#movimento">02 <span>Em movimento</span></a>
     <a href="#sobre">03 <span>Sobre mim</span></a>
     <a href="#contato">04 <span>Contato</span></a>
-    <p>Fotografia · vídeo · sensibilidade</p>
+    <p>Fotografia Â· vÃ­deo Â· sensibilidade</p>
   </nav>
 
   <main id="conteudo">
-    <!-- APRESENTAÇÃO -->
+    <!-- APRESENTAÃ‡ÃƒO -->
     <section class="hero" id="inicio" aria-labelledby="hero-title">
       <div class="hero-inner container">
         <div class="hero-copy">
-          <div class="eyebrow hero-eyebrow"><span class="small-star" aria-hidden="true">✳</span> PORTFÓLIO CRIATIVO <span class="eyebrow-line"></span> BRASÍLIA · DF</div>
-          <h1 id="hero-title" class="hero-title">Toda imagem<br />tem uma <em>história.</em></h1>
+          <div class="eyebrow hero-eyebrow"><span class="small-star" aria-hidden="true">âœ³</span> PORTFÃ“LIO CRIATIVO <span class="eyebrow-line"></span> BRASÃLIA Â· DF</div>
+          <h1 id="hero-title" class="hero-title">Toda imagem<br />tem uma <em>histÃ³ria.</em></h1>
           <div class="hero-bottom">
             <p>Eu sou Emanuelle. Transformo momentos, detalhes e sentimentos em imagens que merecem ficar.</p>
-            <a class="circle-cta" href="#trabalhos" aria-label="Explorar projetos"><span aria-hidden="true">↘</span></a>
+            <a class="circle-cta" href="#trabalhos" aria-label="Explorar projetos"><span aria-hidden="true">â†˜</span></a>
           </div>
-          <div class="hero-index" aria-hidden="true"><span>CRIAR. SENTIR. GUARDAR.</span><span>© <span class="current-year">2026</span></span></div>
+          <div class="hero-index" aria-hidden="true"><span>CRIAR. SENTIR. GUARDAR.</span><span>Â© <span class="current-year">2026</span></span></div>
         </div>
         <div class="hero-media">
           <div class="hero-photo-holder">
             <img class="hero-photo" src="assets/images/emanuel-hero.webp" alt="Retrato de Emanuelle Costa" width="585" height="872" fetchpriority="high" decoding="async" />
             <span class="hero-photocredit">EC / UM OLHAR AUTORAL</span>
           </div>
-          <div class="hero-floating-note" aria-hidden="true"><span>enxergar</span><em>além do óbvio.</em><svg viewBox="0 0 70 55" width="66" height="48" fill="none"><path d="M1 45C20 43 34 35 50 15M35 17l17-4 1 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-          <span class="hero-side-label" aria-hidden="true">A VIDA PELOS MEUS OLHOS — 2026</span>
+          <div class="hero-floating-note" aria-hidden="true"><span>enxergar</span><em>alÃ©m do Ã³bvio.</em><svg viewBox="0 0 70 55" width="66" height="48" fill="none"><path d="M1 45C20 43 34 35 50 15M35 17l17-4 1 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <span class="hero-side-label" aria-hidden="true">A VIDA PELOS MEUS OLHOS â€” 2026</span>
         </div>
       </div>
-      <a href="#trabalhos" class="hero-scroll">ROLE PARA EXPLORAR <span aria-hidden="true">↓</span></a>
+      <a href="#trabalhos" class="hero-scroll">ROLE PARA EXPLORAR <span aria-hidden="true">â†“</span></a>
     </section>
 
-    <div class="ticker" aria-label="Fotografia, edição, vídeo e criação visual">
+    <div class="ticker" aria-label="Fotografia, ediÃ§Ã£o, vÃ­deo e criaÃ§Ã£o visual">
       <div class="ticker-track" aria-hidden="true">
-        <span>FOTOGRAFIA</span><i>✳</i><span>CRIAÇÃO VISUAL</span><i>✳</i><span>VÍDEO & EDIÇÃO</span><i>✳</i><span>OLHAR AUTORAL</span><i>✳</i>
-        <span>FOTOGRAFIA</span><i>✳</i><span>CRIAÇÃO VISUAL</span><i>✳</i><span>VÍDEO & EDIÇÃO</span><i>✳</i><span>OLHAR AUTORAL</span><i>✳</i>
+        <span>FOTOGRAFIA</span><i>âœ³</i><span>CRIAÃ‡ÃƒO VISUAL</span><i>âœ³</i><span>VÃDEO & EDIÃ‡ÃƒO</span><i>âœ³</i><span>OLHAR AUTORAL</span><i>âœ³</i>
+        <span>FOTOGRAFIA</span><i>âœ³</i><span>CRIAÃ‡ÃƒO VISUAL</span><i>âœ³</i><span>VÃDEO & EDIÃ‡ÃƒO</span><i>âœ³</i><span>OLHAR AUTORAL</span><i>âœ³</i>
       </div>
     </div>
 
@@ -124,33 +124,33 @@
       <div class="container">
         <div class="section-top reveal">
           <span class="section-number"><b>01</b> / TRABALHOS SELECIONADOS</span>
-          <p>Uma seleção de registros reais, entre os primeiros ensaios e os detalhes que chamaram meu olhar.</p>
+          <p>Uma seleÃ§Ã£o de registros reais, entre os primeiros ensaios e os detalhes que chamaram meu olhar.</p>
         </div>
         <div class="projects-heading reveal">
-          <h2 id="projects-title">O bonito está<br />nos <em>detalhes.</em></h2>
-          <span class="heading-symbol" aria-hidden="true">✳</span>
+          <h2 id="projects-title">O bonito estÃ¡<br />nos <em>detalhes.</em></h2>
+          <span class="heading-symbol" aria-hidden="true">âœ³</span>
         </div>
 
         <div class="projects-grid">
-          <button class="project-card project-card-one reveal" type="button" data-project="gestante" aria-label="Abrir projeto À espera">
-            <span class="project-image"><img src="assets/images/maternidade-01.webp" alt="Ensaio de gestante em meio à paisagem natural" width="908" height="1210" loading="lazy" decoding="async" /><span class="project-open" aria-hidden="true">↗</span></span>
-            <span class="project-meta"><span><span class="project-category">ENSAIO FOTOGRÁFICO / 001</span><strong>À espera.</strong></span><span class="project-small-arrow" aria-hidden="true">↗</span></span>
+          <button class="project-card project-card-one reveal" type="button" data-project="gestante" aria-label="Abrir projeto Ã€ espera">
+            <span class="project-image"><img src="assets/images/maternidade-01.webp" alt="Ensaio de gestante em meio Ã  paisagem natural" width="908" height="1210" loading="lazy" decoding="async" /><span class="project-open" aria-hidden="true">â†—</span></span>
+            <span class="project-meta"><span><span class="project-category">ENSAIO FOTOGRÃFICO / 001</span><strong>Ã€ espera.</strong></span><span class="project-small-arrow" aria-hidden="true">â†—</span></span>
           </button>
-          <button class="project-card project-card-two reveal" type="button" data-project="infancia" aria-label="Abrir projeto Pequenos começos">
-            <span class="project-image"><img src="assets/images/recem-nascido-01.webp" alt="Retrato delicado de um bebê recém-nascido" width="1000" height="1333" loading="lazy" decoding="async" /><span class="project-open" aria-hidden="true">↗</span></span>
-            <span class="project-meta"><span><span class="project-category">AFETO & INFÂNCIA / 002</span><strong>Pequenos começos.</strong></span><span class="project-small-arrow" aria-hidden="true">↗</span></span>
+          <button class="project-card project-card-two reveal" type="button" data-project="infancia" aria-label="Abrir projeto Pequenos comeÃ§os">
+            <span class="project-image"><img src="assets/images/recem-nascido-01.webp" alt="Retrato delicado de um bebÃª recÃ©m-nascido" width="1000" height="1333" loading="lazy" decoding="async" /><span class="project-open" aria-hidden="true">â†—</span></span>
+            <span class="project-meta"><span><span class="project-category">AFETO & INFÃ‚NCIA / 002</span><strong>Pequenos comeÃ§os.</strong></span><span class="project-small-arrow" aria-hidden="true">â†—</span></span>
           </button>
-          <button class="project-card project-card-wide reveal" type="button" data-project="natureza" aria-label="Abrir projeto Entre céu e terra">
+          <button class="project-card project-card-wide reveal" type="button" data-project="natureza" aria-label="Abrir projeto Entre cÃ©u e terra">
             <span class="panorama-images project-image">
-              <img src="assets/images/paisagem-ceu.webp" alt="Pôr do sol em céu colorido" width="908" height="1210" loading="lazy" decoding="async" />
+              <img src="assets/images/paisagem-ceu.webp" alt="PÃ´r do sol em cÃ©u colorido" width="908" height="1210" loading="lazy" decoding="async" />
               <img src="assets/images/paisagem-montanha.webp" alt="Montanhas e nuvens no interior" width="908" height="1210" loading="lazy" decoding="async" />
-              <img src="assets/images/paisagem-campo.webp" alt="Árvore num campo sob nuvens de tempestade" width="908" height="1210" loading="lazy" decoding="async" />
-              <span class="project-open" aria-hidden="true">↗</span>
+              <img src="assets/images/paisagem-campo.webp" alt="Ãrvore num campo sob nuvens de tempestade" width="908" height="1210" loading="lazy" decoding="async" />
+              <span class="project-open" aria-hidden="true">â†—</span>
             </span>
-            <span class="project-meta"><span><span class="project-category">NATUREZA & PAISAGENS / 003</span><strong>Entre céu e terra.</strong></span><span class="project-small-arrow" aria-hidden="true">↗</span></span>
+            <span class="project-meta"><span><span class="project-category">NATUREZA & PAISAGENS / 003</span><strong>Entre cÃ©u e terra.</strong></span><span class="project-small-arrow" aria-hidden="true">â†—</span></span>
           </button>
         </div>
-        <p class="projects-footnote reveal"><span>✳</span> Cada história começa com um olhar. Toque em um projeto para descobrir mais.</p>
+        <p class="projects-footnote reveal"><span>âœ³</span> Cada histÃ³ria comeÃ§a com um olhar. Toque em um projeto para descobrir mais.</p>
       </div>
     </section>
 
@@ -158,8 +158,8 @@
     <section class="interlude" aria-labelledby="interlude-title">
       <div class="container interlude-layout reveal">
         <span class="interlude-label">UM JEITO DE VER</span>
-        <h2 id="interlude-title">Não é só sobre <i>fotografar.</i><br />É sobre <em>sentir.</em></h2>
-        <span class="interlude-asterisk" aria-hidden="true">✳</span>
+        <h2 id="interlude-title">NÃ£o Ã© sÃ³ sobre <i>fotografar.</i><br />Ã‰ sobre <em>sentir.</em></h2>
+        <span class="interlude-asterisk" aria-hidden="true">âœ³</span>
       </div>
     </section>
 
@@ -167,77 +167,65 @@
     <section class="motion film-section section-pad" id="movimento" aria-labelledby="motion-title">
       <div class="container">
         <div class="section-top section-top-inverse reveal">
-          <span class="section-number"><b>02</b> / MOVIMENTO & EDIÇÃO</span>
-          <p>Algumas histórias merecem ser vistas em movimento. Três olhares, infinitas maneiras de sentir.</p>
+          <span class="section-number"><b>02</b> / MOVIMENTO & EDIÃ‡ÃƒO</span>
+          <p>Algumas histÃ³rias merecem ser vistas em movimento. TrÃªs olhares, infinitas maneiras de sentir.</p>
         </div>
         <div class="motion-heading film-heading reveal">
           <h2 id="motion-title">Quando o olhar<br /><em>ganha movimento.</em></h2>
-          <span class="film-head-meta" aria-label="Dois vídeos horizontais e um vertical">03 FILMES <span aria-hidden="true">✳</span> 02 HORIZONTAIS + 01 VERTICAL</span>
+          <span class="film-head-meta" aria-label="Dois vÃ­deos horizontais e um vertical">03 FILMES <span aria-hidden="true">âœ³</span> 02 HORIZONTAIS + 01 VERTICAL</span>
         </div>
       </div>
-      <div class="container film-grid reveal" aria-label="Galeria com dois vídeos horizontais e um vídeo vertical">
-        <!-- VÍDEO 01 HORIZONTAL (16:9) | arquivo: assets/videos/video-01.mp4 -->
+      <div class="container film-grid reveal" aria-label="Galeria com dois vÃ­deos horizontais e um vÃ­deo vertical">
+        <!-- VÃDEO 01 HORIZONTAL (16:9) | arquivo: assets/videos/video-02.mp4 -->
         <article class="film-card film-featured">
           <div class="film-media">
             <img class="film-poster" src="assets/images/maternidade-01.webp" alt="" loading="lazy" decoding="async" />
-            <video class="film-player" muted loop playsinline preload="auto" aria-label="Vídeo 1 do portfólio de Emanuelle" data-film-video>
-              <source src="assets/videos/video-01.mp4" type="video/mp4" />
+            <video class="film-player" muted loop playsinline preload="auto" aria-label="VÃ­deo 1 do portfÃ³lio de Emanuelle" data-film-video>
+              <source src="assets/videos/video-02.mp4" type="video/mp4" />
             </video>
-            <div class="film-overlay">
-              <span class="film-eyebrow">EC / IMAGEM & MOVIMENTO</span>
-              <div class="film-play-wrap">
-                <button class="film-play" type="button" aria-label="Assistir ao primeiro vídeo" disabled><span aria-hidden="true">▶</span></button>
-                <span class="film-unavailable">VÍDEO EM PREPARAÇÃO</span>
-              </div>
-              <span class="film-corner-number">01 / 03 · 16:9</span>
-            </div>
+            <div class="film-overlay"><div class="film-play-wrap">
+                <button class="film-play" type="button" aria-label="Assistir ao primeiro vÃ­deo" disabled><span aria-hidden="true">â–¶</span></button>
+                <span class="film-unavailable">VÃDEO EM PREPARAÃ‡ÃƒO</span>
+              </div></div>
           </div>
-          <div class="film-caption"><span>01 / FILME DE DESTAQUE</span><h3>O início de tudo</h3><span class="film-caption-arrow" aria-hidden="true">↗</span></div>
+          <div class="film-caption"><span>01 / FILME DE DESTAQUE</span><h3>O inÃ­cio de tudo</h3><span class="film-caption-arrow" aria-hidden="true">â†—</span></div>
         </article>
-        <!-- VÍDEO 02 HORIZONTAL (16:9) | arquivo: assets/videos/video-02.mp4 -->
+        <!-- VÃDEO 02 HORIZONTAL (16:9) | arquivo: assets/videos/video-03.mp4 -->
         <article class="film-card film-secondary film-horizontal">
           <div class="film-media">
             <img class="film-poster" src="assets/images/recem-nascido-01.webp" alt="" loading="lazy" decoding="async" />
-            <video class="film-player" muted loop playsinline preload="auto" aria-label="Vídeo 2 do portfólio de Emanuelle" data-film-video>
-              <source src="assets/videos/video-02.mp4" type="video/mp4" />
+            <video class="film-player" muted loop playsinline preload="auto" aria-label="VÃ­deo 2 do portfÃ³lio de Emanuelle" data-film-video>
+              <source src="assets/videos/video-03.mp4" type="video/mp4" />
             </video>
-            <div class="film-overlay">
-              <span class="film-eyebrow">EC / VISUAL DIARY</span>
-              <div class="film-play-wrap">
-                <button class="film-play" type="button" aria-label="Assistir ao segundo vídeo" disabled><span aria-hidden="true">▶</span></button>
-                <span class="film-unavailable">VÍDEO EM PREPARAÇÃO</span>
-              </div>
-              <span class="film-corner-number">02 / 03 · 16:9</span>
-            </div>
+            <div class="film-overlay"><div class="film-play-wrap">
+                <button class="film-play" type="button" aria-label="Assistir ao segundo vÃ­deo" disabled><span aria-hidden="true">â–¶</span></button>
+                <span class="film-unavailable">VÃDEO EM PREPARAÃ‡ÃƒO</span>
+              </div></div>
           </div>
-          <div class="film-caption"><span>02 / FILME</span><h3>O tempo em detalhes</h3><span class="film-caption-arrow" aria-hidden="true">↗</span></div>
+          <div class="film-caption"><span>02 / FILME</span><h3>O tempo em detalhes</h3><span class="film-caption-arrow" aria-hidden="true">â†—</span></div>
         </article>
-        <!-- VÍDEO 03 VERTICAL (9:16) | arquivo: assets/videos/video-03.mp4 -->
+        <!-- VÃDEO 03 VERTICAL (9:16) | arquivo: assets/videos/video-01.mp4 -->
         <article class="film-card film-portrait">
           <div class="film-media">
             <img class="film-poster" src="assets/images/paisagem-ceu.webp" alt="" loading="lazy" decoding="async" />
-            <video class="film-player" muted loop playsinline preload="auto" aria-label="Vídeo 3 do portfólio de Emanuelle" data-film-video>
-              <source src="assets/videos/video-03.mp4" type="video/mp4" />
+            <video class="film-player" muted loop playsinline preload="auto" aria-label="VÃ­deo 3 do portfÃ³lio de Emanuelle" data-film-video>
+              <source src="assets/videos/video-01.mp4" type="video/mp4" />
             </video>
-            <div class="film-overlay">
-              <span class="film-eyebrow">EC / VISUAL DIARY</span>
-              <div class="film-play-wrap">
-                <button class="film-play" type="button" aria-label="Assistir ao terceiro vídeo" disabled><span aria-hidden="true">▶</span></button>
-                <span class="film-unavailable">VÍDEO EM PREPARAÇÃO</span>
-              </div>
-              <span class="film-corner-number">03 / 03 · 9:16</span>
-            </div>
+            <div class="film-overlay"><div class="film-play-wrap">
+                <button class="film-play" type="button" aria-label="Assistir ao terceiro vÃ­deo" disabled><span aria-hidden="true">â–¶</span></button>
+                <span class="film-unavailable">VÃDEO EM PREPARAÃ‡ÃƒO</span>
+              </div></div>
           </div>
-          <div class="film-caption"><span>03 / FILME VERTICAL</span><h3>Um instante de calma</h3><span class="film-caption-arrow" aria-hidden="true">↗</span></div>
+          <div class="film-caption"><span>03 / FILME VERTICAL</span><h3>Um instante de calma</h3><span class="film-caption-arrow" aria-hidden="true">â†—</span></div>
         </article>
       </div>
-      <div class="container film-footer reveal"><span class="film-footer-line" aria-hidden="true"></span><p>Histórias, sensibilidade e movimento — um espaço para novas criações.</p><span class="film-signature">EC <span aria-hidden="true">✳</span> 2026</span></div>
+      <div class="container film-footer reveal"><span class="film-footer-line" aria-hidden="true"></span><p>HistÃ³rias, sensibilidade e movimento â€” um espaÃ§o para novas criaÃ§Ãµes.</p><span class="film-signature">EC <span aria-hidden="true">âœ³</span> 2026</span></div>
     </section>
 
     <!-- SOBRE -->
     <section class="about section-pad" id="sobre" aria-labelledby="about-title">
       <div class="container">
-        <div class="section-top reveal"><span class="section-number"><b>03</b> / QUEM ESTÁ POR TRÁS</span><p>A pessoa antes da câmera. A sensibilidade por trás de cada escolha.</p></div>
+        <div class="section-top reveal"><span class="section-number"><b>03</b> / QUEM ESTÃ POR TRÃS</span><p>A pessoa antes da cÃ¢mera. A sensibilidade por trÃ¡s de cada escolha.</p></div>
         <div class="about-grid">
           <div class="about-visual reveal">
             <div class="about-photo"><img src="assets/images/emanuel-apresentacao-v3.webp" onerror="this.onerror=null;this.src='assets/images/emanuel-portrait.webp?v=3'" alt="Emanuelle em um retrato pessoal" width="908" height="1210" loading="eager" decoding="async" /></div>
@@ -245,12 +233,12 @@
             <span class="about-photo-index">01 / 01</span>
           </div>
           <div class="about-copy reveal">
-            <span class="about-intro">OLÁ, SOU EU <span aria-hidden="true">✳</span></span>
+            <span class="about-intro">OLÃ, SOU EU <span aria-hidden="true">âœ³</span></span>
             <h2 id="about-title">Um olhar<br />curioso, uma<br />alma <em>criativa.</em></h2>
-            <p>Sou Emanuelle Costa, criadora visual de Brasília. Minha história começou fotografando paisagens pelo celular, até descobrir, em um ensaio de gestante em família, o quanto uma imagem pode guardar.</p>
-            <p>Hoje exploro fotografia, vídeo, edição e criação visual. Gosto de juntar estética e autenticidade sem deixar de lado a essência de cada história.</p>
-            <div class="about-tags" aria-label="Áreas de atuação"><span>FOTOGRAFIA</span><span>VÍDEO & EDIÇÃO</span><span>CRIAÇÃO VISUAL</span></div>
-            <a href="#contato" class="text-link">Conheça meu jeito de criar <span aria-hidden="true">↗</span></a>
+            <p>Sou Emanuelle Costa, criadora visual de BrasÃ­lia. Minha histÃ³ria comeÃ§ou fotografando paisagens pelo celular, atÃ© descobrir, em um ensaio de gestante em famÃ­lia, o quanto uma imagem pode guardar.</p>
+            <p>Hoje exploro fotografia, vÃ­deo, ediÃ§Ã£o e criaÃ§Ã£o visual. Gosto de juntar estÃ©tica e autenticidade sem deixar de lado a essÃªncia de cada histÃ³ria.</p>
+            <div class="about-tags" aria-label="Ãreas de atuaÃ§Ã£o"><span>FOTOGRAFIA</span><span>VÃDEO & EDIÃ‡ÃƒO</span><span>CRIAÃ‡ÃƒO VISUAL</span></div>
+            <a href="#contato" class="text-link">ConheÃ§a meu jeito de criar <span aria-hidden="true">â†—</span></a>
           </div>
         </div>
       </div>
@@ -260,10 +248,10 @@
     <section class="details" aria-label="Galeria de pequenos instantes">
       <div class="details-head container reveal"><span class="section-number"><b>04</b> / FRAGMENTOS</span><p>Coisas simples.<br /><em>Olhares que ficam.</em></p></div>
       <div class="details-grid">
-        <button type="button" data-project="infancia" class="details-tile details-tile-a" aria-label="Ver fotos da infância"><img src="assets/images/infancia-01.webp" alt="Criança sorrindo com brinquedo" width="908" height="1613" loading="lazy" decoding="async" /><span>UM JEITO DE LEMBRAR <b>↗</b></span></button>
-        <button type="button" data-project="gestante" class="details-tile details-tile-b" aria-label="Ver fotos do ensaio de gestante"><img src="assets/images/maternidade-02.webp" alt="Retrato de gestante à luz do dia" width="908" height="1210" loading="lazy" decoding="async" /><span>O QUE FICA <b>↗</b></span></button>
-        <button type="button" data-project="natureza" class="details-tile details-tile-c" aria-label="Ver fotos das paisagens"><img src="assets/images/paisagem-campo.webp" alt="Paisagem rural em dia nublado" width="908" height="1210" loading="lazy" decoding="async" /><span>PAUSAS NO TEMPO <b>↗</b></span></button>
-        <button type="button" data-project="cotidiano" class="details-tile details-tile-d" aria-label="Ver registros do cotidiano"><img src="assets/images/comunidade.webp" alt="Fotografia de grupo de um projeto coletivo" width="1100" height="619" loading="lazy" decoding="async" /><span>ENTRE PESSOAS <b>↗</b></span></button>
+        <button type="button" data-project="infancia" class="details-tile details-tile-a" aria-label="Ver fotos da infÃ¢ncia"><img src="assets/images/infancia-01.webp" alt="CrianÃ§a sorrindo com brinquedo" width="908" height="1613" loading="lazy" decoding="async" /><span>UM JEITO DE LEMBRAR <b>â†—</b></span></button>
+        <button type="button" data-project="gestante" class="details-tile details-tile-b" aria-label="Ver fotos do ensaio de gestante"><img src="assets/images/maternidade-02.webp" alt="Retrato de gestante Ã  luz do dia" width="908" height="1210" loading="lazy" decoding="async" /><span>O QUE FICA <b>â†—</b></span></button>
+        <button type="button" data-project="natureza" class="details-tile details-tile-c" aria-label="Ver fotos das paisagens"><img src="assets/images/paisagem-campo.webp" alt="Paisagem rural em dia nublado" width="908" height="1210" loading="lazy" decoding="async" /><span>PAUSAS NO TEMPO <b>â†—</b></span></button>
+        <button type="button" data-project="cotidiano" class="details-tile details-tile-d" aria-label="Ver registros do cotidiano"><img src="assets/images/comunidade.webp" alt="Fotografia de grupo de um projeto coletivo" width="1100" height="619" loading="lazy" decoding="async" /><span>ENTRE PESSOAS <b>â†—</b></span></button>
       </div>
     </section>
 
@@ -271,29 +259,30 @@
     <section class="contact" id="contato" aria-labelledby="contact-title">
       <div class="container contact-content">
         <div class="contact-top reveal"><span class="section-number"><b>05</b> / VAMOS CRIAR?</span><span class="contact-status"><span class="status-dot"></span> ABERTA A NOVAS CONVERSAS</span></div>
-        <h2 id="contact-title" class="reveal">Toda boa história<br />começa com um <em>olá.</em></h2>
+        <h2 id="contact-title" class="reveal">Toda boa histÃ³ria<br />comeÃ§a com um <em>olÃ¡.</em></h2>
         <div class="contact-bottom reveal">
-          <p>Tem um projeto, uma ideia ou um momento especial para guardar? Eu adoraria ouvir você.</p>
-          <a class="contact-button" target="_blank" rel="noopener noreferrer" href="https://wa.me/5561982003437?text=Oi%2C%20Emanuelle%21%20Vi%20seu%20portf%C3%B3lio%20e%20queria%20conversar%20sobre%20um%20projeto.">Me chama no WhatsApp <span aria-hidden="true">↗</span></a>
+          <p>Tem um projeto, uma ideia ou um momento especial para guardar? Eu adoraria ouvir vocÃª.</p>
+          <a class="contact-button" target="_blank" rel="noopener noreferrer" href="https://wa.me/5561982003437?text=Oi%2C%20Emanuelle%21%20Vi%20seu%20portf%C3%B3lio%20e%20queria%20conversar%20sobre%20um%20projeto.">Me chama no WhatsApp <span aria-hidden="true">â†—</span></a>
         </div>
         <div class="contact-outline" aria-hidden="true">EC.</div>
       </div>
     </section>
   </main>
-  <footer class="site-footer"><div class="container footer-grid"><a href="#inicio" class="footer-brand">Emanuelle Costa <span>↗</span></a><span>BRASÍLIA, DF · HOME OFFICE & PRESENCIAL</span><a href="#inicio">VOLTAR AO TOPO ↑</a><span>© <span class="current-year">2026</span> · FEITO PARA GUARDAR HISTÓRIAS</span></div></footer>
+  <footer class="site-footer"><div class="container footer-grid"><a href="#inicio" class="footer-brand">Emanuelle Costa <span>â†—</span></a><span>BRASÃLIA, DF Â· HOME OFFICE & PRESENCIAL</span><a href="#inicio">VOLTAR AO TOPO â†‘</a><span>Â© <span class="current-year">2026</span> Â· FEITO PARA GUARDAR HISTÃ“RIAS</span></div></footer>
 
-  <!-- Diálogo de projeto: conteúdo vem de js/main.js -->
+  <!-- DiÃ¡logo de projeto: conteÃºdo vem de js/main.js -->
   <dialog id="project-dialog" class="project-dialog" aria-labelledby="dialog-project-title">
     <div class="dialog-panel">
-      <button class="dialog-close" type="button" id="dialog-close" aria-label="Fechar projeto">✕</button>
+      <button class="dialog-close" type="button" id="dialog-close" aria-label="Fechar projeto">âœ•</button>
       <div class="dialog-info">
         <span id="dialog-category" class="project-category"></span>
         <h2 id="dialog-project-title"></h2>
         <p id="dialog-project-description"></p>
-        <div class="dialog-controls"><button type="button" id="dialog-prev" aria-label="Foto anterior">←</button><span id="dialog-counter" aria-live="polite"></span><button type="button" id="dialog-next" aria-label="Próxima foto">→</button></div>
+        <div class="dialog-controls"><button type="button" id="dialog-prev" aria-label="Foto anterior">â†</button><span id="dialog-counter" aria-live="polite"></span><button type="button" id="dialog-next" aria-label="PrÃ³xima foto">â†’</button></div>
       </div>
       <figure class="dialog-figure"><img id="dialog-image" alt="" /><figcaption id="dialog-figcaption"></figcaption></figure>
     </div>
   </dialog>
 </body>
 </html>
+
