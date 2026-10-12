@@ -382,3 +382,10 @@ h2{margin:0}.projects-heading h2,.motion-heading h2,.about-copy h2{font-family:v
   .film-grid .film-portrait .film-overlay{padding:15px}
   .film-grid .film-portrait .film-caption h3{font-size:23px}
 }
+
+/* V3: o próprio vídeo fica à mostra; a foto é apenas um fallback enquanto carrega. */
+.film-card.film-preview-ready .film-player,.film-card.film-playing .film-player{opacity:1}
+.film-card.film-preview-ready .film-player{pointer-events:none}
+.film-card.film-playing .film-player{pointer-events:auto}
+.film-card.film-preview-ready .film-poster{opacity:0}
+.film-card.film-preview-ready .film-overlay::before{background:linear-gradient(180deg,rgba(0,0,0,.3),transparent 38%,transparent 58%,rgba(0,0,0,.34))}

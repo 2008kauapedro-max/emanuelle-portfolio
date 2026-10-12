@@ -1,5 +1,5 @@
 /* Emanuelle Costa — PWA offline shell, sem frameworks. */
-const CACHE_NAME = 'emanuelle-portfolio-v4-films-horizontal';
+const CACHE_NAME = 'emanuelle-portfolio-v5-real-video-preview';
 const APP_ASSETS = [
   "./",
   "./index.html",
@@ -15,6 +15,7 @@ const APP_ASSETS = [
   "./assets/images/preview-whatsapp-ec-v3.jpg",
   "./assets/images/comunidade.webp",
   "./assets/images/emanuel-editorial.webp",
+  "./assets/images/emanuel-apresentacao-v3.webp",
   "./assets/images/emanuel-hero.webp",
   "./assets/images/emanuel-portrait.webp",
   "./assets/images/infancia-01.webp",

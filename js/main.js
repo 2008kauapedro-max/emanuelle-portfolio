@@ -218,52 +218,108 @@ window.addEventListener('keydown', event => {
   if (event.key === 'ArrowLeft') { event.preventDefault(); currentPhoto--; showPhoto(); }
 });
 
-// GALERIA DE TRÊS VÍDEOS HORIZONTAIS. Sem carrossel ou autoplay pesado.
-// Para publicar os vídeos reais, basta copiar video-01.mp4, video-02.mp4 e
-// video-03.mp4 para assets/videos. Os cartões funcionam automaticamente.
+// GALERIA MISTA: 2 FILMES HORIZONTAIS + 1 VERTICAL.
+// Os MP4 reais aparecem em movimento (prévia muda) quando entram na tela;
+// tocar no botão abre reprodução com áudio e controles do navegador.
 const filmCards = $$('.film-card');
-function stopOtherFilms(except) {
+const reduceFilmsMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const saveFilmsData = navigator.connection?.saveData === true;
+const previewAllowed = !reduceFilmsMotion && !saveFilmsData;
+const filmVisible = new WeakMap();
+let activeFilm = null;
+
+function pauseOtherFilms(except) {
   filmCards.forEach(card => {
-    if (card !== except) {
-      const video = $('video', card);
-      if (video && !video.paused) video.pause();
-    }
+    if (card === except) return;
+    const vid = $('.film-player', card);
+    if (vid) vid.pause();
+    card.classList.remove('film-playing');
+    if (vid) { vid.muted = true; vid.controls = false; vid.loop = true; }
   });
 }
+function startFilmPreview(card) {
+  if (!previewAllowed || activeFilm === card || !filmVisible.get(card)) return;
+  const vid = $('.film-player', card);
+  if (!vid || vid.readyState < 1 || !card.classList.contains('film-ready')) return;
+  vid.muted = true;
+  vid.loop = true;
+  vid.controls = false;
+  const started = vid.play();
+  if (started?.catch) started.catch(() => {});
+}
 filmCards.forEach(card => {
-  const video = $('video', card);
+  const video = $('.film-player', card);
   const button = $('.film-play', card);
   if (!video || !button) return;
-  // Antes de existir um MP4 verdadeiro, fica só a capa e a indicação discreta.
-  video.addEventListener('loadedmetadata', () => {
+  filmVisible.set(card, false);
+
+  function markReady() {
     card.classList.add('film-ready');
     button.disabled = false;
-  });
-  video.addEventListener('error', () => {
-    card.classList.remove('film-ready', 'film-playing');
+    startFilmPreview(card);
+  }
+  function showVideo() { card.classList.add('film-preview-ready'); }
+  function showError() {
+    card.classList.remove('film-ready','film-preview-ready','film-playing');
     button.disabled = true;
-    video.controls = false;
-  });
+    const status = $('.film-unavailable', card);
+    if (status) status.textContent = 'VÍDEO INDISPONÍVEL';
+  }
+  video.addEventListener('loadedmetadata', markReady);
+  video.addEventListener('loadeddata', showVideo);
+  video.addEventListener('error', showError);
+  video.addEventListener('playing', showVideo);
+  // Metadata pode chegar antes de o JS ser executado: não prender o play.
+  if (video.readyState >= 1) markReady();
+  if (video.readyState >= 2) showVideo();
+
   button.addEventListener('click', async () => {
-    if (!card.classList.contains('film-ready')) return;
-    stopOtherFilms(card);
+    if (!card.classList.contains('film-ready')) {
+      try { video.load(); } catch (_) {}
+      return;
+    }
+    activeFilm = card;
+    pauseOtherFilms(card);
+    video.loop = false;
+    video.muted = false;
     video.controls = true;
     card.classList.add('film-playing');
-    try { await video.play(); }
-    catch (_) { card.classList.remove('film-playing'); video.controls = false; }
-  });
-  video.addEventListener('pause', () => {
-    card.classList.remove('film-playing');
-    video.controls = false;
+    try {
+      video.currentTime = 0;
+      await video.play();
+    } catch (_) {
+      card.classList.remove('film-playing');
+      video.muted = true;
+      video.controls = false;
+      video.loop = true;
+      activeFilm = null;
+      startFilmPreview(card);
+    }
   });
   video.addEventListener('ended', () => {
+    if (activeFilm === card) activeFilm = null;
     card.classList.remove('film-playing');
+    video.muted = true;
     video.controls = false;
-    video.currentTime = 0;
+    video.loop = true;
+    startFilmPreview(card);
   });
 });
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const card = entry.target;
+      const visible = entry.isIntersecting;
+      filmVisible.set(card, visible);
+      if (visible) startFilmPreview(card);
+      else if (activeFilm !== card) $('.film-player',card)?.pause();
+    });
+  }, {threshold: .15, rootMargin: '100px 0px 100px 0px'});
+  filmCards.forEach(card => observer.observe(card));
+} else filmCards.forEach(card => {filmVisible.set(card,true);startFilmPreview(card);});
 document.addEventListener('visibilitychange', () => {
-  if (document.hidden) stopOtherFilms(null);
+  if (!document.hidden) return;
+  filmCards.forEach(card => $('.film-player', card)?.pause());
 });
 
 
