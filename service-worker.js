@@ -1,5 +1,5 @@
 /* Emanuelle Costa — PWA offline shell, sem frameworks. */
-const CACHE_NAME = 'emanuelle-portfolio-v3-20261010';
+const CACHE_NAME = 'emanuelle-portfolio-v4-films-horizontal';
 const APP_ASSETS = [
   "./",
   "./index.html",

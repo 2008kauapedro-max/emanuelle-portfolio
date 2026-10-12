@@ -163,66 +163,75 @@
       </div>
     </section>
 
-    <!-- VÍDEO / MOTION -->
-    <section class="motion section-pad" id="movimento" aria-labelledby="motion-title">
+    <!-- FILMES / DOIS HORIZONTAIS E UM VERTICAL -->
+    <section class="motion film-section section-pad" id="movimento" aria-labelledby="motion-title">
       <div class="container">
         <div class="section-top section-top-inverse reveal">
           <span class="section-number"><b>02</b> / MOVIMENTO & EDIÇÃO</span>
-          <p>Alguns instantes pedem mais que uma foto. Pedem tempo, ritmo e movimento.</p>
+          <p>Algumas histórias merecem ser vistas em movimento. Três olhares, infinitas maneiras de sentir.</p>
         </div>
-        <div class="motion-heading reveal">
+        <div class="motion-heading film-heading reveal">
           <h2 id="motion-title">Quando o olhar<br /><em>ganha movimento.</em></h2>
-          <div class="reel-controls" aria-label="Navegar pelo carrossel de vídeos">
-            <button type="button" id="reel-prev" class="arrow-control" aria-label="Vídeo anterior">←</button>
-            <button type="button" id="reel-next" class="arrow-control" aria-label="Próximo vídeo">→</button>
+          <span class="film-head-meta" aria-label="Dois vídeos horizontais e um vertical">03 FILMES <span aria-hidden="true">✳</span> 02 HORIZONTAIS + 01 VERTICAL</span>
+        </div>
+      </div>
+      <div class="container film-grid reveal" aria-label="Galeria com dois vídeos horizontais e um vídeo vertical">
+        <!-- VÍDEO 01 HORIZONTAL (16:9) | arquivo: assets/videos/video-01.mp4 -->
+        <article class="film-card film-featured">
+          <div class="film-media">
+            <img class="film-poster" src="assets/images/maternidade-01.webp" alt="" loading="lazy" decoding="async" />
+            <video class="film-player" playsinline preload="metadata" poster="assets/images/maternidade-01.webp" aria-label="Vídeo 1 do portfólio de Emanuelle" data-film-video>
+              <source src="assets/videos/video-01.mp4" type="video/mp4" />
+            </video>
+            <div class="film-overlay">
+              <span class="film-eyebrow">EC / IMAGEM & MOVIMENTO</span>
+              <div class="film-play-wrap">
+                <button class="film-play" type="button" aria-label="Assistir ao primeiro vídeo" disabled><span aria-hidden="true">▶</span></button>
+                <span class="film-unavailable">VÍDEO EM PREPARAÇÃO</span>
+              </div>
+              <span class="film-corner-number">01 / 03 · 16:9</span>
+            </div>
           </div>
-        </div>
+          <div class="film-caption"><span>01 / FILME DE DESTAQUE</span><h3>O início de tudo</h3><span class="film-caption-arrow" aria-hidden="true">↗</span></div>
+        </article>
+        <!-- VÍDEO 02 HORIZONTAL (16:9) | arquivo: assets/videos/video-02.mp4 -->
+        <article class="film-card film-secondary film-horizontal">
+          <div class="film-media">
+            <img class="film-poster" src="assets/images/recem-nascido-01.webp" alt="" loading="lazy" decoding="async" />
+            <video class="film-player" playsinline preload="metadata" poster="assets/images/recem-nascido-01.webp" aria-label="Vídeo 2 do portfólio de Emanuelle" data-film-video>
+              <source src="assets/videos/video-02.mp4" type="video/mp4" />
+            </video>
+            <div class="film-overlay">
+              <span class="film-eyebrow">EC / VISUAL DIARY</span>
+              <div class="film-play-wrap">
+                <button class="film-play" type="button" aria-label="Assistir ao segundo vídeo" disabled><span aria-hidden="true">▶</span></button>
+                <span class="film-unavailable">VÍDEO EM PREPARAÇÃO</span>
+              </div>
+              <span class="film-corner-number">02 / 03 · 16:9</span>
+            </div>
+          </div>
+          <div class="film-caption"><span>02 / FILME</span><h3>O tempo em detalhes</h3><span class="film-caption-arrow" aria-hidden="true">↗</span></div>
+        </article>
+        <!-- VÍDEO 03 VERTICAL (9:16) | arquivo: assets/videos/video-03.mp4 -->
+        <article class="film-card film-portrait">
+          <div class="film-media">
+            <img class="film-poster" src="assets/images/paisagem-ceu.webp" alt="" loading="lazy" decoding="async" />
+            <video class="film-player" playsinline preload="metadata" poster="assets/images/paisagem-ceu.webp" aria-label="Vídeo 3 do portfólio de Emanuelle" data-film-video>
+              <source src="assets/videos/video-03.mp4" type="video/mp4" />
+            </video>
+            <div class="film-overlay">
+              <span class="film-eyebrow">EC / VISUAL DIARY</span>
+              <div class="film-play-wrap">
+                <button class="film-play" type="button" aria-label="Assistir ao terceiro vídeo" disabled><span aria-hidden="true">▶</span></button>
+                <span class="film-unavailable">VÍDEO EM PREPARAÇÃO</span>
+              </div>
+              <span class="film-corner-number">03 / 03 · 9:16</span>
+            </div>
+          </div>
+          <div class="film-caption"><span>03 / FILME VERTICAL</span><h3>Um instante de calma</h3><span class="film-caption-arrow" aria-hidden="true">↗</span></div>
+        </article>
       </div>
-      <div class="reels-wrap reveal">
-        <div class="reels container" id="reel-carousel" role="region" aria-roledescription="carrossel" aria-label="Prévia de vídeos verticais" tabindex="0">
-          <article class="reel-card">
-            <div class="reel-screen">
-              <video muted loop playsinline preload="none" poster="assets/images/maternidade-01.webp" aria-label="Prévia animada do ensaio de gestante" data-preview-video><source src="assets/videos/preview-maternidade.mp4" type="video/mp4" /></video>
-              <span class="reel-top-tag">EC / VISUAL DIARY</span>
-              <span class="reel-middle-title">Esperar <em>também</em><br />é amar.</span>
-              <button type="button" class="reel-toggle" aria-label="Pausar prévia" aria-pressed="true"><span aria-hidden="true">Ⅱ</span></button>
-              <span class="reel-preview-badge">PRÉVIA CONCEITUAL</span>
-            </div>
-            <div class="reel-caption"><span>01 / MATERNIDADE</span><strong>O início de tudo</strong></div>
-          </article>
-          <article class="reel-card">
-            <div class="reel-screen">
-              <video muted loop playsinline preload="none" poster="assets/images/recem-nascido-01.webp" aria-label="Prévia animada dos registros de recém-nascido" data-preview-video><source src="assets/videos/preview-infancia.mp4" type="video/mp4" /></video>
-              <span class="reel-top-tag">EC / VISUAL DIARY</span>
-              <span class="reel-middle-title">Pequenas<br /><em>eternidades.</em></span>
-              <button type="button" class="reel-toggle" aria-label="Reproduzir prévia" aria-pressed="false"><span aria-hidden="true">▶</span></button>
-              <span class="reel-preview-badge">PRÉVIA CONCEITUAL</span>
-            </div>
-            <div class="reel-caption"><span>02 / INFÂNCIA</span><strong>O tempo em detalhes</strong></div>
-          </article>
-          <article class="reel-card">
-            <div class="reel-screen">
-              <video muted loop playsinline preload="none" poster="assets/images/paisagem-ceu.webp" aria-label="Prévia animada das fotografias de natureza" data-preview-video><source src="assets/videos/preview-natureza.mp4" type="video/mp4" /></video>
-              <span class="reel-top-tag">EC / VISUAL DIARY</span>
-              <span class="reel-middle-title">O céu sabe<br /><em>contar histórias.</em></span>
-              <button type="button" class="reel-toggle" aria-label="Reproduzir prévia" aria-pressed="false"><span aria-hidden="true">▶</span></button>
-              <span class="reel-preview-badge">PRÉVIA CONCEITUAL</span>
-            </div>
-            <div class="reel-caption"><span>03 / NATUREZA</span><strong>Um instante de calma</strong></div>
-          </article>
-          <article class="reel-card">
-            <div class="reel-screen">
-              <video muted loop playsinline preload="none" poster="assets/images/emanuel-portrait.webp" aria-label="Prévia animada de um retrato de Emanuelle" data-preview-video><source src="assets/videos/preview-olhar.mp4" type="video/mp4" /></video>
-              <span class="reel-top-tag">EC / VISUAL DIARY</span>
-              <span class="reel-middle-title">Sempre<br /><em>em criação.</em></span>
-              <button type="button" class="reel-toggle" aria-label="Reproduzir prévia" aria-pressed="false"><span aria-hidden="true">▶</span></button>
-              <span class="reel-preview-badge">PRÉVIA CONCEITUAL</span>
-            </div>
-            <div class="reel-caption"><span>04 / CRIAÇÃO</span><strong>Por trás do olhar</strong></div>
-          </article>
-        </div>
-      </div>
-      <div class="container motion-footer"><div class="motion-line" aria-hidden="true"><span id="reel-progress"></span></div><p>Prévia demonstrativa montada com fotos do portfólio. Os vídeos originais podem substituí-la quando estiverem disponíveis.</p></div>
+      <div class="container film-footer reveal"><span class="film-footer-line" aria-hidden="true"></span><p>Histórias, sensibilidade e movimento — um espaço para novas criações.</p><span class="film-signature">EC <span aria-hidden="true">✳</span> 2026</span></div>
     </section>
 
     <!-- SOBRE -->

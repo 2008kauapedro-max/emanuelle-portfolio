@@ -218,120 +218,53 @@ window.addEventListener('keydown', event => {
   if (event.key === 'ArrowLeft') { event.preventDefault(); currentPhoto--; showPhoto(); }
 });
 
-// VÍDEOS VERTICAIS. Os três arquivos .mp4 são apenas prévias DEMONSTRATIVAS
-// montadas com fotos dela. Trocar arquivos na pasta assets/videos/ para
-// inserir trabalhos reais da Emanuelle sem mexer no layout.
-const reels = $('#reel-carousel');
-const reelCards = $$('.reel-card', reels);
-const prevReel = $('#reel-prev');
-const nextReel = $('#reel-next');
-const reelProgress = $('#reel-progress');
-let reelsVisible = false;
-let carouselScheduled = false;
-let manuallyPausedCard = null;
-
-function closestReelIndex() {
-  if (!reels || !reelCards.length) return 0;
-  const viewportMid = reels.getBoundingClientRect().left + reels.clientWidth * .5;
-  return reelCards.reduce((best, card, index) => {
-    const rect = card.getBoundingClientRect();
-    const diff = Math.abs(rect.left + rect.width / 2 - viewportMid);
-    return diff < best.diff ? { index, diff } : best;
-  }, { index: 0, diff: Infinity }).index;
-}
-function pauseOtherReels(exceptCard = null) {
-  reelCards.forEach(card => {
-    if (card !== exceptCard) {
+// GALERIA DE TRÊS VÍDEOS HORIZONTAIS. Sem carrossel ou autoplay pesado.
+// Para publicar os vídeos reais, basta copiar video-01.mp4, video-02.mp4 e
+// video-03.mp4 para assets/videos. Os cartões funcionam automaticamente.
+const filmCards = $$('.film-card');
+function stopOtherFilms(except) {
+  filmCards.forEach(card => {
+    if (card !== except) {
       const video = $('video', card);
-      video?.pause();
-      updatePlayLabel(card, false);
+      if (video && !video.paused) video.pause();
     }
   });
 }
-function updatePlayLabel(card, playing) {
-  const button = $('.reel-toggle', card);
-  if (!button) return;
-  button.setAttribute('aria-label', playing ? 'Pausar prévia' : 'Reproduzir prévia');
-  button.setAttribute('aria-pressed', String(playing));
-  const symbol = $('span', button);
-  if (symbol) symbol.textContent = playing ? 'Ⅱ' : '▶';
-}
-function tryPlay(card) {
-  if (!card) return;
+filmCards.forEach(card => {
   const video = $('video', card);
-  if (!video) return;
-  pauseOtherReels(card);
-  const result = video.play();
-  if (result?.then) {
-    result.then(() => updatePlayLabel(card, true)).catch(() => updatePlayLabel(card, false));
-  } else updatePlayLabel(card, true);
-}
-function syncReels() {
-  carouselScheduled = false;
-  if (!reels) return;
-  const maxScroll = Math.max(1, reels.scrollWidth - reels.clientWidth);
-  const ratio = Math.max(0, Math.min(1, reels.scrollLeft / maxScroll));
-  // Segmento indica a parte visível da faixa.
-  const visiblePortion = Math.min(1, reels.clientWidth / reels.scrollWidth);
-  const progress = visiblePortion + ratio * (1 - visiblePortion);
-  reelProgress.style.transform = `scaleX(${progress.toFixed(3)})`;
-  prevReel.disabled = reels.scrollLeft < 8;
-  nextReel.disabled = reels.scrollLeft > maxScroll - 8;
-  if (!reelsVisible || document.hidden || prefersReducedMotion.matches || dialog?.open) {
-    pauseOtherReels();
-    return;
-  }
-  const active = reelCards[closestReelIndex()];
-  if (manuallyPausedCard === active) pauseOtherReels();
-  else tryPlay(active);
-}
-function scheduleReels() {
-  if (!carouselScheduled) {
-    carouselScheduled = true;
-    window.requestAnimationFrame(syncReels);
-  }
-}
-function scrollReels(direction) {
-  if (!reels || !reelCards.length) return;
-  const cardWidth = reelCards[0].getBoundingClientRect().width;
-  const gap = parseFloat(getComputedStyle(reels).gap) || 0;
-  manuallyPausedCard = null;
-  reels.scrollBy({ left: direction * (cardWidth + gap), behavior: motionBehavior() });
-}
-prevReel?.addEventListener('click', () => scrollReels(-1));
-nextReel?.addEventListener('click', () => scrollReels(1));
-reels?.addEventListener('scroll', scheduleReels, { passive: true });
-reels?.addEventListener('keydown', event => {
-  if (event.key === 'ArrowLeft') { event.preventDefault(); scrollReels(-1); }
-  if (event.key === 'ArrowRight') { event.preventDefault(); scrollReels(1); }
+  const button = $('.film-play', card);
+  if (!video || !button) return;
+  // Antes de existir um MP4 verdadeiro, fica só a capa e a indicação discreta.
+  video.addEventListener('loadedmetadata', () => {
+    card.classList.add('film-ready');
+    button.disabled = false;
+  });
+  video.addEventListener('error', () => {
+    card.classList.remove('film-ready', 'film-playing');
+    button.disabled = true;
+    video.controls = false;
+  });
+  button.addEventListener('click', async () => {
+    if (!card.classList.contains('film-ready')) return;
+    stopOtherFilms(card);
+    video.controls = true;
+    card.classList.add('film-playing');
+    try { await video.play(); }
+    catch (_) { card.classList.remove('film-playing'); video.controls = false; }
+  });
+  video.addEventListener('pause', () => {
+    card.classList.remove('film-playing');
+    video.controls = false;
+  });
+  video.addEventListener('ended', () => {
+    card.classList.remove('film-playing');
+    video.controls = false;
+    video.currentTime = 0;
+  });
 });
-$$('.reel-toggle', reels).forEach(button => button.addEventListener('click', () => {
-  const card = button.closest('.reel-card');
-  const video = $('video', card);
-  if (video.paused) {
-    manuallyPausedCard = null;
-    tryPlay(card);
-  } else {
-    manuallyPausedCard = card;
-    video.pause();
-    updatePlayLabel(card, false);
-  }
-}));
-reelCards.forEach(card => {
-  const video = $('video', card);
-  video?.addEventListener('error', () => updatePlayLabel(card, false));
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) stopOtherFilms(null);
 });
-if ('IntersectionObserver' in window && reels) {
-  const reelObserver = new IntersectionObserver(entries => {
-    reelsVisible = entries[0]?.isIntersecting ?? false;
-    scheduleReels();
-  }, { threshold: .28 });
-  reelObserver.observe(reels);
-} else reelsVisible = true;
-window.addEventListener('resize', scheduleReels, { passive: true });
-document.addEventListener('visibilitychange', scheduleReels);
-dialog?.addEventListener('close', scheduleReels);
-scheduleReels();
 
 
 // PWA: permite instalar pela opção do navegador e abrir conteúdo básico offline.
