@@ -1,8 +1,8 @@
-﻿/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ─────────────────────────────────────────────────────────
    EMANUELLE COSTA / IMAGEM & MOVIMENTO
    Identidade: editorial, humana, autoral.
    Mobile first em comportamento, layouts adaptados por breakpoint.
-   â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+   ───────────────────────────────────────────────────────── */
 :root{
   --paper:#f4f0e9;--paper-2:#eae3d9;--ink:#28241f;--muted:#777069;
   --line:rgba(40,36,31,.2);--dark:#221f1d;--wine:#592f33;--rose:#d4a599;
@@ -212,7 +212,7 @@ h2{margin:0}.projects-heading h2,.motion-heading h2,.about-copy h2{font-family:v
  html{scroll-behavior:auto}.ticker-track{animation:none;will-change:auto}.js .reveal,.js .reveal.is-visible{transition:none;opacity:1;transform:none}*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
 }
 
-/* â”€â”€â”€ CabeÃ§alho sempre visÃ­vel + conforto visual (sem tema preto) â”€â”€â”€ */
+/* ─── Cabeçalho sempre visível + conforto visual (sem tema preto) ─── */
 .site-header{
   position:fixed;
   top:0;
@@ -243,7 +243,7 @@ h2{margin:0}.projects-heading h2,.motion-heading h2,.about-copy h2{font-family:v
 .theme-icon-moon{display:none}
 :root[data-theme="soft"] .theme-icon-sun{display:none}
 :root[data-theme="soft"] .theme-icon-moon{display:block}
-/* Paleta taupe quente: menos brilho, contraste legÃ­vel e sem preto puro. */
+/* Paleta taupe quente: menos brilho, contraste legível e sem preto puro. */
 :root[data-theme="soft"]{
   --paper:#d6cec4;
   --paper-2:#c8beb2;
@@ -289,7 +289,7 @@ h2{margin:0}.projects-heading h2,.motion-heading h2,.about-copy h2{font-family:v
 }
 
 /* --- FILM GALLERY / HORIZONTAL 16:9 ---
-   Desktop: um filme principal e dois menores; mobile: trÃªs filmes em coluna. */
+   Desktop: um filme principal e dois menores; mobile: três filmes em coluna. */
 .film-section{overflow:hidden}
 .film-heading{margin-bottom:48px;align-items:flex-end}
 .film-head-meta{flex-shrink:0;display:flex;align-items:center;gap:12px;white-space:nowrap;color:#cabdb5;font-size:10px;font-weight:700;letter-spacing:.2em;padding-bottom:12px}
@@ -383,7 +383,7 @@ h2{margin:0}.projects-heading h2,.motion-heading h2,.about-copy h2{font-family:v
   .film-grid .film-portrait .film-caption h3{font-size:23px}
 }
 
-/* V3: o prÃ³prio vÃ­deo fica Ã  mostra; a foto Ã© apenas um fallback enquanto carrega. */
+/* V3: o próprio vídeo fica à mostra; a foto é apenas um fallback enquanto carrega. */
 .film-card.film-preview-ready .film-player,.film-card.film-playing .film-player{opacity:1}
 .film-card.film-preview-ready .film-player{pointer-events:none}
 .film-card.film-playing .film-player{pointer-events:auto}
